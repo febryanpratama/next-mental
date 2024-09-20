@@ -258,14 +258,19 @@ export const postFetchPassword = async (
 ): Promise<ReturnResult> => {
   const resp = await fetchData(path, body, Method.POST);
 
-  if (resp.data.result.token) {
-    const token = resp.data.result.token;
-
-    let cokie = cookieStore.set({
-      name: "token",
-      value: token,
-    });
-  }
+  // if (resp.data.result.token) {
+  //   const token = resp.data.result.token;
+  //
+  //   const cookie = cookieStore.set("token", token, {
+  //     httpOnly: true, // Direkomendasikan untuk keamanan
+  //     // secure: process.env.NODE_ENV === "production", // Hanya untuk HTTPS di produksi
+  //     expires: new Date(Date.now() + 1000 * 60 * 60 * 24), // Expire dalam 1 hari
+  //     sameSite: "strict", // Perlindungan CSRF
+  //     path: "/",
+  //   });
+  //
+  //   console.log(cookie);
+  // }
 
   return {
     data: resp.data,

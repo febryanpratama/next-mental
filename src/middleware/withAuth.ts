@@ -23,6 +23,7 @@ export default function withAuth(
       const cookieStore = cookies();
       const token = cookieStore.get("token");
 
+      console.log(token);
       // If no token found or token is explicitly null
       if (!token || !token.value) {
         const loginUrl = new URL("/login", req.url);

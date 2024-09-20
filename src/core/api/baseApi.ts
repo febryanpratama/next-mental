@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 import {
   deleteFetchData,
   getFetchData,
@@ -57,6 +59,19 @@ export const postPassword = async (path: string, body: Record<string, any>) => {
 
   // callToastLoading(date.getTime().toString());
   const resp = await postFetchPassword(path, body);
+
+  console.log("Reponse Login", resp.data);
+  console.log("Reponse Login", resp.data.result);
+  console.log("Reponse Login", resp.data.result.token);
+  if (resp.data.result.token !== "") {
+    console.log("True");
+    console.log("resp.data.result.token");
+    Cookies.set("token", resp.data.result.token, {
+      expires: 1, // Cookie berfungsi selama 1 hari
+      secure: process.env.NODE_ENV === "production", // Hanya untuk HTTPS di produksi
+      sameSite: "Strict", // Perlindungan CSRF
+    });
+  }
 
   callToastDone(resp.message);
 
