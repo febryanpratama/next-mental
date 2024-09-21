@@ -18,7 +18,20 @@ import { ThemeSwitch } from "@/src/components/theme-switch";
 export const NavbarHome = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["Beranda", "Mood", "Curhat"];
+  const menuItems = [
+    {
+      name: "Beranda",
+      link: "/home",
+    },
+    {
+      name: "Mood",
+      link: "/mood",
+    },
+    {
+      name: "Curhat",
+      link: "/curhat",
+    },
+  ];
 
   // @ts-ignore
   return (
@@ -97,10 +110,10 @@ export const NavbarHome = () => {
                     ? "danger"
                     : "foreground"
               }
-              href="#"
+              href={item.link}
               size="lg"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}
