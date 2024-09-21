@@ -33,11 +33,11 @@ const useMbtiService = () => {
   const [responseData, setResponseData] = useState<any | null>(null);
   const [submitHidden, setSubmitHidden] = useState<boolean>(false);
   const [homeHidden, setHomeHidden] = useState<boolean>(true);
+  const [isLoadingSubmit, setIsLoadingSubmit] = useState<boolean>(false);
   const router = useRouter();
   const fetchDataProfile = async () => {
+    setIsLoadingSubmit(true);
     const promptAi = `${p1}${pertanyaan1},${p2}${pertanyaan2},${p3}${pertanyaan3},${p4}${pertanyaan4},${p5}${pertanyaan5},${p6}${pertanyaan6},${p7}${pertanyaan7}. berdasarkan data tersebut, tentukan kepribadian mbti saya`;
-
-    console.log(promptAi);
 
     const reqBody = {
       nama: nama,
@@ -96,8 +96,9 @@ const useMbtiService = () => {
     pertanyaan6,
     setPertanyaan6,
     pertanyaan7,
-    setPertanyaan7,
 
+    setPertanyaan7,
+    isLoadingSubmit,
     goToHome,
     submitHidden,
     homeHidden,

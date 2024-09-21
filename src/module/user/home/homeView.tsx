@@ -8,7 +8,7 @@ export default function HomeView() {
     >
       <div className={`container`}>
         {/*  */}
-        <div className={`grid grid-cols-3 gap-5`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-5`}>
           <div
             className={`flex flex-col justify-center items-center border-1 border-gray-500 px-8 rounded-2xl py-5`}
           >

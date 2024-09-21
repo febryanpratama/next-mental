@@ -11,8 +11,6 @@ export const LoginView = () => {
     password,
     setPassword,
     fetchDataPassword,
-    isLoading,
-    setIsLoading,
     otp,
     setOtp,
     isHiddenButton,
@@ -27,21 +25,20 @@ export const LoginView = () => {
       className={`relative w-full h-auto`}
       style={{
         backgroundImage: `url('images/bg-image.png')`,
-        backgroundSize: "cover", // Makes the image cover the entire div
-        // backgroundPosition: "center", // Centers the image
-        // backgroundRepeat: "no-repeat", // Prevents the image from repeating
+        backgroundSize: "cover",
       }}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center">
-        {/* Your login form or content */}
-        <div className={`relative h-screen`}>
+        {/* Picture */}
+        <div className={`relative h-screen hidden md:block`}>
           <div
             className="absolute top-0 right-0 h-full w-full bg-gradient-to-r from-white/0 to-white"
             style={{ pointerEvents: "none" }}
           />
         </div>
+        {/*Form Section*/}
         <div
-          className={` h-screen flex flex-col justify-center items-center bg-white`}
+          className={`h-screen flex flex-col justify-center items-center bg-white`}
         >
           <div>
             <Image

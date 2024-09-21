@@ -21,6 +21,7 @@ export default function MbtiView() {
     goToHome,
     submitHidden,
     homeHidden,
+    isLoadingSubmit,
 
     pertanyaan1,
     setPertanyaan1,
@@ -61,20 +62,28 @@ export default function MbtiView() {
       <div
         className={`flex w-full bg-secondary flex-col justify-center items-center`}
       >
-        <div className={`container flex justify-center items-center h-56`}>
+        <div
+          className={`container flex justify-center items-center h-auto md:h-56`}
+        >
           <div className={`w-full relative`}>
-            <div className={`absolute inset-x-0 -bottom-20`}>
+            {/* Bagian Judul */}
+            <div
+              className={`relative py-8 md:absolute md:inset-x-0 md:-bottom-20`}
+            >
               <div
-                className={`text-5xl font-bold text-primary text-center mb-20
-            `}
+                className={`text-3xl md:text-5xl font-bold text-primary text-center mb-10 md:mb-20`}
               >
                 Lengkapi Data Anda
               </div>
             </div>
-            <div className={`absolute inset-x-0 top-14`}>
-              <div className={`md:flex justify-evenly gap-x-10`}>
+
+            {/* Bagian Card */}
+            <div className={`relative py-8 md:absolute md:inset-x-0 md:top-14`}>
+              <div
+                className={`flex flex-col md:flex-row justify-center md:justify-evenly gap-y-4 md:gap-x-10`}
+              >
                 <div
-                  className={`w-1/5 h-32 flex flex-col bg-purple rounded-3xl px-5 py-3`}
+                  className={`w-full md:w-1/5 h-32 flex flex-col bg-purple rounded-3xl px-5 py-3`}
                 >
                   <div
                     className={`rounded-xl flex justify-center items-center bg-white w-10`}
@@ -88,14 +97,15 @@ export default function MbtiView() {
                   </div>
                   <div className={`flex justify-center items-center mt-2`}>
                     <div
-                      className={`text-2xl text-center text-white font-semibold`}
+                      className={`text-xl md:text-2xl text-center text-white font-semibold`}
                     >
                       Jawablah pertanyaan secara jujur
                     </div>
                   </div>
                 </div>
+
                 <div
-                  className={`w-1/5 h-32 flex flex-col bg-purple rounded-3xl px-5 py-3`}
+                  className={`w-full md:w-1/5 h-32 flex flex-col bg-purple rounded-3xl px-5 py-3`}
                 >
                   <div
                     className={`rounded-xl flex justify-center items-center bg-white w-10`}
@@ -109,14 +119,15 @@ export default function MbtiView() {
                   </div>
                   <div className={`flex justify-center items-center mt-2`}>
                     <div
-                      className={`text-2xl text-center text-white font-semibold`}
+                      className={`text-xl md:text-2xl text-center text-white font-semibold`}
                     >
                       Pelajari tipe kepribadian anda
                     </div>
                   </div>
                 </div>
+
                 <div
-                  className={`w-1/5 h-32 flex flex-col bg-purple rounded-3xl px-5 py-3`}
+                  className={`w-full md:w-1/5 h-32 flex flex-col bg-purple rounded-3xl px-5 py-3`}
                 >
                   <div
                     className={`rounded-xl flex justify-center items-center bg-white w-10`}
@@ -130,7 +141,7 @@ export default function MbtiView() {
                   </div>
                   <div className={`flex justify-center items-center mt-2`}>
                     <div
-                      className={`text-2xl text-center text-white font-semibold`}
+                      className={`text-xl md:text-2xl text-center text-white font-semibold`}
                     >
                       Menjadi pribadi yang anda inginkan
                     </div>
@@ -142,11 +153,11 @@ export default function MbtiView() {
         </div>
       </div>
       <div className={`flex flex-col justify-center items-center mt-32`}>
-        <div className={`container grid grid-cols-4 gap-4`}>
+        <div className={`container grid grid-cols-1 md:grid-cols-4 gap-4`}>
           <div className={`col-span-3 bg-whitesmoke flex flex-col px-10 py-8`}>
             <div>
               <div className={`text-start text-2xl`}>Data Profil</div>
-              <div className={`grid grid-cols-4 gap-4 mt-4`}>
+              <div className={`grid grid-cols-1 md:grid-cols-4 gap-4 mt-4`}>
                 <Select
                   className="max-w-xs bg-white"
                   label="Pilih Jenis Kelamin"
@@ -395,6 +406,8 @@ export default function MbtiView() {
             >
               <Button
                 color={`primary`}
+                isDisabled={isLoadingSubmit}
+                isLoading={isLoadingSubmit}
                 type={`button`}
                 variant={`ghost`}
                 onClick={() => {
@@ -419,7 +432,7 @@ export default function MbtiView() {
               </Button>
             </div>
           </div>
-          <div className={`col-span-1 bg-white`}>
+          <div className={`col-span-1 bg-white flex flex-col px-10 py-8`}>
             <div
               className={`flex flex-col justify-center items-center px-5 h-auto bg-whitesmoke`}
             >

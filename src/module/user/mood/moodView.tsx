@@ -41,7 +41,7 @@ export default function MoodView() {
             Pilih Bulan
           </Button>
         </div>
-        <div className={`grid grid-cols-4 gap-4`}>
+        <div className={`grid grid-cols-1 md:grid-cols-4 gap-4`}>
           <div className={`col-span-3`}>
             <Tabs
               aria-label="Options"
@@ -60,7 +60,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "indifferent" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/biasa.png`}
+                          src={`/icons/indifferent.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("indifferent");
@@ -78,7 +78,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "happy" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/senang.png`}
+                          src={`/icons/happy.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("happy");
@@ -96,7 +96,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "confused" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/bingung.png`}
+                          src={`/icons/confused.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("confused");
@@ -113,7 +113,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "sad" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/sedih.png`}
+                          src={`/icons/sad.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("sad");
@@ -130,7 +130,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "angry" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/marah.png`}
+                          src={`/icons/angry.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("angry");
@@ -177,7 +177,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "indifferent" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/biasa.png`}
+                          src={`/icons/indifferent.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("indifferent");
@@ -195,7 +195,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "happy" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/senang.png`}
+                          src={`/icons/happy.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("happy");
@@ -213,7 +213,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "confused" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/bingung.png`}
+                          src={`/icons/confused.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("confused");
@@ -230,7 +230,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "sad" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/sedih.png`}
+                          src={`/icons/sad.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("sad");
@@ -247,7 +247,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "angry" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/marah.png`}
+                          src={`/icons/angry.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("angry");
@@ -294,7 +294,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "indifferent" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/biasa.png`}
+                          src={`/icons/indifferent.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("indifferent");
@@ -312,7 +312,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "happy" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/senang.png`}
+                          src={`/icons/happy.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("happy");
@@ -330,7 +330,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "confused" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/bingung.png`}
+                          src={`/icons/confused.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("confused");
@@ -347,7 +347,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "sad" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/sedih.png`}
+                          src={`/icons/sad.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("sad");
@@ -364,7 +364,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "angry" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/marah.png`}
+                          src={`/icons/angry.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("angry");
@@ -411,7 +411,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "indifferent" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/biasa.png`}
+                          src={`/icons/indifferent.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("indifferent");
@@ -429,7 +429,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "happy" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/senang.png`}
+                          src={`/icons/happy.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("happy");
@@ -447,7 +447,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "confused" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/bingung.png`}
+                          src={`/icons/confused.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("confused");
@@ -464,7 +464,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "sad" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/sedih.png`}
+                          src={`/icons/sad.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("sad");
@@ -481,7 +481,7 @@ export default function MoodView() {
                           alt={`Biasa Icon`}
                           className={`${emoticon === "angry" ? "bg-red-700 rounded-2xl" : ""}`}
                           height={100}
-                          src={`/icons/marah.png`}
+                          src={`/icons/angry.png`}
                           width={150}
                           onClick={() => {
                             setEmoticon("angry");

@@ -113,9 +113,11 @@ export default function CurhatView() {
     >
       <div className={`container`}>
         {/*  */}
-        <div className={`grid grid-cols-4 gap-5`}>
+        <div
+          className={`grid grid-cols-1 md:grid-cols-4 gap-5 justify-center mx-auto`}
+        >
           <div
-            className={`col-span-1 bg-whitesmoke border-1 border-gray-500 rounded-2xl px-6 py-4`}
+            className={`md:col-span-1 bg-whitesmoke border-1 border-gray-500 rounded-2xl px-6 py-4 w-full sm:max-w-md`}
           >
             <div className={`flex justify-between items-center`}>
               <div className={`text-xl font-bold text-black`}>Sesi Curhat</div>
@@ -151,7 +153,7 @@ export default function CurhatView() {
             {/* End Each Data Curhat */}
           </div>
           <div
-            className={`col-span-3 bg-whitesmoke border-1 border-gray-500 rounded-2xl`}
+            className={`md:col-span-3 bg-whitesmoke border-1 border-gray-500 rounded-2xl`}
           >
             <div className={`relative`}>
               <div
