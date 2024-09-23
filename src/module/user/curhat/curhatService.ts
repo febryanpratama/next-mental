@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 
 import {
   fetchGetCurhat,
-  fetchPostCurhat,
   fetchPostDetailConversation,
   fetchPostDetailCurhat,
+  fetGetCreateSessionCurhat,
 } from "@/src/repository/curhat/CurhatRepository";
 import { ResultModelGetCurhat } from "@/src/model/modelGetCurhat";
 import { ResultDetailConversation } from "@/src/model/modelDetailConversation";
@@ -15,6 +15,9 @@ const useCurhatService = () => {
   const [conversationId, setConversationId] = useState<number>();
   const [uuid, setUuid] = useState<string>("");
   const [prompt, setPrompt] = useState<string>("");
+  const [isSubmit, setIsSubmit] = useState<boolean>(false);
+  const [isSesi, setIsSesi] = useState<boolean>(false);
+
   const [listConversation, setListConversation] = useState<
     ResultModelGetCurhat[] | null
   >([]);
@@ -45,6 +48,7 @@ const useCurhatService = () => {
 
   const postConversation = async () => {
     // console.log(conversationId);
+    setIsSubmit(true);
     const reqBody = {
       conversationId: conversationId,
       prompt,
@@ -58,19 +62,20 @@ const useCurhatService = () => {
 
     setListDetailConversation(resp.result);
     setPrompt("");
+    setIsSubmit(false);
   };
 
   const createSessionCurhat = async () => {
-    const reqBody = {
-      prompt: "Halo, hari ini aku mau curhat",
-      uuid: "",
-    };
-    const resp = fetchPostCurhat(reqBody);
+    setIsSesi(true);
+    const resp = await fetGetCreateSessionCurhat();
 
     if (resp === null) {
+      setIsSesi(false);
+
       return null;
     }
     fetchDataConversation();
+    setIsSesi(false);
   };
 
   useEffect(() => {
@@ -91,6 +96,10 @@ const useCurhatService = () => {
     setUuid,
     postConversation,
     createSessionCurhat,
+    isSubmit,
+    setIsSubmit,
+    isSesi,
+    setIsSesi,
   };
 };
 

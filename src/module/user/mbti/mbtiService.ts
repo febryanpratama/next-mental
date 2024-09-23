@@ -55,9 +55,6 @@ const useMbtiService = () => {
     }
 
     setResponseData(resp.result);
-    console.debug("FETCH" + resp.result);
-    console.log("Response set:", resp);
-    console.log("Response setRepsonse:", responseData);
 
     setSubmitHidden(true);
     setHomeHidden(false);

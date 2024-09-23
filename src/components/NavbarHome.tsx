@@ -68,17 +68,17 @@ export const NavbarHome = () => {
           />
         </NavbarBrand>
         <NavbarItem className={`md:pl-10`}>
-          <Link color="foreground" href="/">
+          <Link color="foreground" href="/home">
             Beranda
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/package">
+          <Link color="foreground" href="/mood">
             Mood
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link aria-current="page" href="/favorite">
+          <Link aria-current="page" href="/curhat">
             Curhat
           </Link>
         </NavbarItem>

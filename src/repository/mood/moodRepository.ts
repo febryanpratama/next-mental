@@ -8,7 +8,6 @@ export const fetchPostMood = async (body: any): Promise<ModelMood | null> => {
     type: body.type,
   });
 
-  console.log("Response Fetch Post Mood Repository", resp);
   if (resp === null) {
     return null;
   }

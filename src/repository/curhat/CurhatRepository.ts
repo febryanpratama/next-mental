@@ -70,3 +70,14 @@ export const fetchPostDetailCurhat = async (
     JSON.stringify(resp),
   );
 };
+
+export const fetGetCreateSessionCurhat =
+  async (): Promise<ModelStoreCurhat | null> => {
+    const resp = await get("/curhat/create-session-chat");
+
+    if (resp === null) {
+      return null;
+    }
+
+    return ConvertToModelStoreCurhat.toModelStoreCurhat(JSON.stringify(resp));
+  };

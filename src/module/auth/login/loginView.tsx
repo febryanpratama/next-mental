@@ -14,7 +14,6 @@ export const LoginView = () => {
     otp,
     setOtp,
     isHiddenButton,
-    setIsHiddenButton,
     fetchDataEmail,
     hiddenOtp,
     hiddenPassword,

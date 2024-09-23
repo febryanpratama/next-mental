@@ -7,18 +7,16 @@ import useCurhatService from "@/src/module/user/curhat/curhatService";
 
 export default function CurhatView() {
   const {
-    isData,
-    setIsData,
     listConversation,
     fetchDetailDataConversation,
-    setConversationId,
     listDetailConversation,
     postConversation,
     prompt,
     setPrompt,
-    uuid,
-    setUuid,
     createSessionCurhat,
+    isSubmit,
+    conversationId,
+    isSesi,
   } = useCurhatService();
 
   function formatDate(dateString: string) {
@@ -33,79 +31,6 @@ export default function CurhatView() {
 
     return `${day}-${month}-${year} ${hours}:${minutes}`;
   }
-
-  const listData = [
-    {
-      id: 1,
-      conversationId: 1,
-      response: "Hallo, aku mau curhat dong",
-      createdAt: "2024-09-20T05:34:12.893Z",
-      updatedAt: "2024-09-20T05:34:12.893Z",
-      deletedAt: null,
-      isUser: true,
-      conversation: {
-        id: 1,
-        userId: 2,
-        uuid: "6f75ea30-41f9-446e-8283-f341c23fe6e1",
-        createdAt: "2024-09-20T05:34:12.888Z",
-        updatedAt: "2024-09-20T05:34:12.888Z",
-        deletedAt: null,
-      },
-    },
-    {
-      id: 2,
-      conversationId: 1,
-      response:
-        "Halo! Tentu saja, saya di sini untuk mendengarkan. Ceritakan apa yang ingin kamu curhatkan.",
-      createdAt: "2024-09-20T05:34:14.947Z",
-      updatedAt: "2024-09-20T05:34:14.947Z",
-      deletedAt: null,
-      isUser: false,
-      conversation: {
-        id: 1,
-        userId: 2,
-        uuid: "6f75ea30-41f9-446e-8283-f341c23fe6e1",
-        createdAt: "2024-09-20T05:34:12.888Z",
-        updatedAt: "2024-09-20T05:34:12.888Z",
-        deletedAt: null,
-      },
-    },
-    {
-      id: 3,
-      conversationId: 1,
-      response: "Saat Ini Aku Lagi Sedih",
-      createdAt: "2024-09-20T05:36:03.362Z",
-      updatedAt: "2024-09-20T05:36:03.362Z",
-      deletedAt: null,
-      isUser: true,
-      conversation: {
-        id: 1,
-        userId: 2,
-        uuid: "6f75ea30-41f9-446e-8283-f341c23fe6e1",
-        createdAt: "2024-09-20T05:34:12.888Z",
-        updatedAt: "2024-09-20T05:34:12.888Z",
-        deletedAt: null,
-      },
-    },
-    {
-      id: 4,
-      conversationId: 1,
-      response:
-        "Aku minta maaf kalau kamu sedang merasa sedih. Terkadang, emosi seperti kesedihan bisa terasa begitu kuat dan menantang untuk dihadapi. Apapun yang tengah kamu alami, ingatlah bahwa adalah normal untuk merasa sedih dan bahwa kamu tidak sendiri dalam perasaan ini. Jika kamu merasa nyaman, ceritakanlah apa yang membuatmu sedih. Berbicara tentang perasaanmu bisa membantu merasa sedikit lebih baik. Saya di sini untuk mendengarkan dan memberikan dukungan sebaik yang saya bisa.",
-      createdAt: "2024-09-20T05:36:08.627Z",
-      updatedAt: "2024-09-20T05:36:08.627Z",
-      deletedAt: null,
-      isUser: false,
-      conversation: {
-        id: 1,
-        userId: 2,
-        uuid: "6f75ea30-41f9-446e-8283-f341c23fe6e1",
-        createdAt: "2024-09-20T05:34:12.888Z",
-        updatedAt: "2024-09-20T05:34:12.888Z",
-        deletedAt: null,
-      },
-    },
-  ];
 
   return (
     <div
@@ -123,6 +48,8 @@ export default function CurhatView() {
               <div className={`text-xl font-bold text-black`}>Sesi Curhat</div>
               <Button
                 color={`primary`}
+                isDisabled={isSesi}
+                isLoading={isSesi}
                 variant={`ghost`}
                 onClick={() => {
                   createSessionCurhat();
@@ -172,8 +99,22 @@ export default function CurhatView() {
                   </div>
                 </div>
                 <div className={`flex justify-center items-center`}>
-                  <div>icons 1</div>
-                  <div>icons 2</div>
+                  <div>
+                    <Image
+                      alt={`List Icons`}
+                      height={40}
+                      src={`/icons/list-icons.svg`}
+                      width={40}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      alt={`List Icons`}
+                      height={40}
+                      src={`/icons/close-icons.svg`}
+                      width={40}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -212,10 +153,12 @@ export default function CurhatView() {
                 );
               })}
             </div>
-            <div className={`px-8 mb-4`}>
+            <div className={`px-8 mb-4 ${conversationId ? "" : "hidden"}`}>
               <Input
                 endContent={
                   <Button
+                    isDisabled={isSubmit}
+                    isLoading={isSubmit}
                     onClick={() => {
                       //
                       postConversation();

@@ -2,9 +2,6 @@ import React from "react";
 
 import { HistoryProvider } from "./history-pkb/HistoryProvider";
 
-import NavbarNavigation from "@/src/components/NavbarNavigation";
-import SidebarNavigation from "@/src/components/SidebarNavigation";
-
 export default function DashboardLayout({
   children,
 }: {
@@ -13,9 +10,9 @@ export default function DashboardLayout({
   return (
     <HistoryProvider>
       <section className="flex">
-        <SidebarNavigation />
+        {/*<SidebarNavigation />*/}
         <div className="w-full">
-          <NavbarNavigation />
+          {/*<NavbarNavigation />*/}
           {children}
         </div>
       </section>

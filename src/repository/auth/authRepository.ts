@@ -10,8 +10,6 @@ export const login = async (email: string): Promise<ModelUser | null> => {
     email,
   });
 
-  console.log("Response Repository Auth", resp);
-
   if (resp === null) {
     return null;
   }
@@ -29,8 +27,6 @@ export const fetchPassword = async (
     password,
     otp,
   });
-
-  console.log("Response Repository Auth Password", resp);
 
   if (resp === null) {
     return null;
