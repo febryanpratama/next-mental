@@ -32,6 +32,8 @@ const useMoodService = () => {
   const [emoticon, setEmoticon] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [type, setType] = useState<string>("");
+  const [isSubmit, setIsSubmit] = useState<boolean>(false);
+  const [isGenerate, setIsGenerate] = useState<boolean>(false);
   const [responseData, setResponseData] = useState<ResultModelMood | null>(
     null,
   );
@@ -69,8 +71,6 @@ const useMoodService = () => {
       return null;
     }
 
-    console.log("Response Button Curhat", resp);
-
     router.push("/curhat");
   };
 
@@ -84,6 +84,10 @@ const useMoodService = () => {
     fetchData,
     responseData,
     postDataCurhat,
+    isSubmit,
+    setIsSubmit,
+    isGenerate,
+    setIsGenerate,
   };
 };
 

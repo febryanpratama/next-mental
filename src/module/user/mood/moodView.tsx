@@ -14,6 +14,9 @@ export default function MoodView() {
     fetchData,
     responseData,
     postDataCurhat,
+    isSubmit,
+    isGenerate,
+    setIsGenerate,
   } = useMoodService();
 
   const getEmoticonLabel = (emoticon: string) => {
@@ -155,6 +158,8 @@ export default function MoodView() {
                       <Button
                         className={`mt-10`}
                         color={`primary`}
+                        isDisabled={isSubmit}
+                        isLoading={isSubmit}
                         variant={`ghost`}
                         onClick={() => {
                           fetchData();
@@ -272,6 +277,8 @@ export default function MoodView() {
                       <Button
                         className={`mt-10`}
                         color={`primary`}
+                        isDisabled={isSubmit}
+                        isLoading={isSubmit}
                         variant={`ghost`}
                         onClick={() => {
                           fetchData();
@@ -389,6 +396,8 @@ export default function MoodView() {
                       <Button
                         className={`mt-10`}
                         color={`primary`}
+                        isDisabled={isSubmit}
+                        isLoading={isSubmit}
                         variant={`ghost`}
                         onClick={() => {
                           fetchData();
@@ -506,6 +515,8 @@ export default function MoodView() {
                       <Button
                         className={`mt-10`}
                         color={`primary`}
+                        isDisabled={isSubmit}
+                        isLoading={isSubmit}
                         variant={`ghost`}
                         onClick={() => {
                           fetchData();
@@ -550,6 +561,8 @@ export default function MoodView() {
                     <Button
                       className={`mt-4`}
                       color={`primary`}
+                      isDisabled={isGenerate}
+                      isLoading={isGenerate}
                       variant={`ghost`}
                       onClick={() => {
                         //
