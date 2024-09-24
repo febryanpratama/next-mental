@@ -42,6 +42,7 @@ const useMoodService = () => {
 
   const fetchData = async () => {
     //
+    setIsSubmit(true);
     const reqBody = {
       emoticon,
       description,
@@ -52,14 +53,17 @@ const useMoodService = () => {
     const resp = await fetchPostMood(reqBody);
 
     if (resp === null) {
+      setIsSubmit(false);
+
       return null;
     }
 
     setResponseData(resp.result);
-    console.log("Response Service", responseData);
+    setIsSubmit(false);
   };
 
   const postDataCurhat = async (prompt: any) => {
+    setIsGenerate(true);
     const reqBody = {
       prompt: prompt,
       uuid: "",
@@ -68,10 +72,13 @@ const useMoodService = () => {
     const resp = await fetchPostCurhat(reqBody);
 
     if (resp === null) {
+      setIsGenerate(false);
+
       return null;
     }
 
     router.push("/curhat");
+    setIsGenerate(false);
   };
 
   return {
