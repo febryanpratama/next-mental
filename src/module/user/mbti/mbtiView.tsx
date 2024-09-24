@@ -22,6 +22,12 @@ export default function MbtiView() {
     submitHidden,
     homeHidden,
     isLoadingSubmit,
+    bahasa,
+    setBahasa,
+    gayaKomunikasi,
+    setGayaKomunikasi,
+    durasiKomunikasi,
+    setDurasiKomunikasi,
 
     pertanyaan1,
     setPertanyaan1,
@@ -41,6 +47,42 @@ export default function MbtiView() {
   const gender = [
     { key: "laki", label: "Laki-Laki" },
     { key: "perempuan", label: "Perempuan" },
+  ];
+
+  //friendly, wisely, dreamy & directive
+
+  const listGayaKomunikasi = [
+    {
+      key: "wisely",
+      label: "Wisely",
+    },
+    {
+      key: "friendly",
+      label: "Friendly",
+    },
+    {
+      key: "dreamy",
+      label: "Dreamy",
+    },
+    {
+      key: "directive",
+      label: "Directive",
+    },
+  ];
+
+  const listDurasiKomunikasi = [
+    {
+      key: "singkat",
+      label: "Singkat",
+    },
+    {
+      key: "normal",
+      label: "Normal",
+    },
+    {
+      key: "panjang",
+      label: "Panjang",
+    },
   ];
 
   // const responseData = {
@@ -180,6 +222,41 @@ export default function MbtiView() {
                     setNama(e.target.value);
                   }}
                 />
+                <Input
+                  label={`Bahasa`}
+                  size={`sm`}
+                  type={`text`}
+                  value={bahasa}
+                  onChange={(e) => {
+                    setBahasa(e.target.value);
+                  }}
+                />
+                <Select
+                  className="max-w-xs bg-white"
+                  label="Gaya Komunikasi"
+                  size="sm"
+                  value={gayaKomunikasi} // Bind value to the selected state
+                  onChange={(e) => setGayaKomunikasi(e.target.value)} // Handle selection
+                >
+                  {listGayaKomunikasi.map((gk: any) => (
+                    <SelectItem key={gk.key} value={gk.key}>
+                      {gk.label}
+                    </SelectItem>
+                  ))}
+                </Select>
+                <Select
+                  className="max-w-xs bg-white"
+                  label="Durasi Komunikasi"
+                  size="sm"
+                  value={durasiKomunikasi} // Bind value to the selected state
+                  onChange={(e) => setDurasiKomunikasi(e.target.value)} // Handle selection
+                >
+                  {listDurasiKomunikasi.map((dk: any) => (
+                    <SelectItem key={dk.key} value={dk.key}>
+                      {dk.label}
+                    </SelectItem>
+                  ))}
+                </Select>
                 <Input
                   label={`Username`}
                   size={`sm`}

@@ -8,6 +8,11 @@ const useMbtiService = () => {
   const [nama, setNama] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [bahasa, setBahasa] = useState<string>("");
+  const [gayaKomunikasi, setGayaKomunikasi] = useState<string>("");
+  const [durasiKomunikasi, setDurasiKomunikasi] = useState<string>("");
+
+  // Pertanyaan State
   const [pertanyaan1, setPertanyaan1] = useState<string>("");
   const [pertanyaan2, setPertanyaan2] = useState<string>("");
   const [pertanyaan3, setPertanyaan3] = useState<string>("");
@@ -46,6 +51,9 @@ const useMbtiService = () => {
       username: username,
       prompt: promptAi,
       foto: "",
+      gaya_komunikasi: gayaKomunikasi,
+      durasi_komunikasi: durasiKomunikasi,
+      bahasa: bahasa,
     };
 
     const resp = await fetchProfileData(reqBody);
@@ -79,6 +87,12 @@ const useMbtiService = () => {
     setPassword,
     responseData,
     fetchDataProfile,
+    bahasa,
+    setBahasa,
+    gayaKomunikasi,
+    setGayaKomunikasi,
+    durasiKomunikasi,
+    setDurasiKomunikasi,
 
     pertanyaan1,
     setPertanyaan1,

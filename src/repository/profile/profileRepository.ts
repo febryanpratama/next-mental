@@ -19,6 +19,9 @@ export const fetchProfileData = async (
     password: body.password,
     foto: "",
     prompt: body.prompt,
+    gaya_komunikasi: body.gaya_komunikasi,
+    durasi_komunikasi: body.durasi_komunikasi,
+    bahasa: body.bahasa,
   });
 
   if (resp === null) {
