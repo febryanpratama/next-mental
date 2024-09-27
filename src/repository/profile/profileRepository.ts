@@ -19,10 +19,12 @@ export const fetchProfileData = async (
     password: body.password,
     foto: "",
     prompt: body.prompt,
+    bahasa: body.bahasa,
     gaya_komunikasi: body.gaya_komunikasi,
     durasi_komunikasi: body.durasi_komunikasi,
-    bahasa: body.bahasa,
   });
+
+  console.log("Response Profile Repository", resp);
 
   if (resp === null) {
     return null;

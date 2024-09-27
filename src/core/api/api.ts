@@ -157,6 +157,8 @@ export const postFetchData = async (
 ): Promise<ReturnResult> => {
   const resp = await fetchData(path, body, Method.POST);
 
+  console.log("response", resp);
+
   return {
     data: resp.data,
     message: resp.message,

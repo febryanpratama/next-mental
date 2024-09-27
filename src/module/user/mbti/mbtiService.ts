@@ -59,6 +59,8 @@ const useMbtiService = () => {
     const resp = await fetchProfileData(reqBody);
 
     if (resp === null) {
+      setIsLoadingSubmit(false);
+
       return null;
     }
 
