@@ -7,7 +7,7 @@
 export interface ModelDetailConversation {
   errorCode: number;
   message: string;
-  result: ResultDetailConversation[];
+  result: ResultDetailConversation;
 }
 
 export interface ResultDetailConversation {
@@ -17,17 +17,9 @@ export interface ResultDetailConversation {
   createdAt: Date;
   updatedAt: Date;
   deletedAt: null;
+  roleAi: string;
   isUser: boolean;
-  conversation: Conversation;
-}
-
-export interface Conversation {
-  id: number;
-  userId: number;
-  uuid: string;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt: null;
+  readeble: boolean;
 }
 
 // Converts JSON strings to/from your types

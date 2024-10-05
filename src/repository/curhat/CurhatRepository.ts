@@ -29,7 +29,7 @@ export const fetchPostCurhat = async (
 
 export const fetchGetCurhat = async (): Promise<ModelGetCurhat | null> => {
   //
-  const resp = await get("/curhat");
+  const resp = await get("/curhat?type=physical");
 
   if (resp === null) {
     return null;
@@ -73,7 +73,13 @@ export const fetchPostDetailCurhat = async (
 
 export const fetGetCreateSessionCurhat =
   async (): Promise<ModelStoreCurhat | null> => {
-    const resp = await get("/curhat/create-session-chat");
+    const resp = await post("/curhat/create-session-curhat", {
+      jenis_kelamin: "",
+      gaya_bicara: "",
+      jenis_penyampaian: "",
+      tipe: "physical",
+      prompt: "",
+    });
 
     if (resp === null) {
       return null;

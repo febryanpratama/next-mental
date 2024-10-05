@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/react";
+import Typewriter from "typewriter-effect";
 
 import useCurhatService from "@/src/module/user/curhat/curhatService";
 
@@ -17,6 +18,7 @@ export default function CurhatView() {
     isSubmit,
     conversationId,
     isSesi,
+    listChat,
   } = useCurhatService();
 
   function formatDate(dateString: string) {
@@ -128,7 +130,7 @@ export default function CurhatView() {
               </div>
             </div>
             <div className={`mt-24 px-8`}>
-              {listDetailConversation?.map((item: any, index: number) => {
+              {listChat?.map((item: any, index: number) => {
                 return (
                   <div key={index}>
                     {item.isUser ? (
@@ -154,7 +156,23 @@ export default function CurhatView() {
                           width={50}
                         />
                         <div className="px-4 py-2 border-1 border-gray-600 rounded-2xl">
-                          {item.response}
+                          {/*{item.response}*/}
+                          <Typewriter
+                            options={{
+                              autoStart: true,
+                              loop: false,
+                              delay: 75,
+                            }}
+                            onInit={(typewriter) => {
+                              typewriter
+                                .typeString(item.response) // Manually type the string
+                                .callFunction(() => {
+                                  console.log("Typing complete");
+                                })
+                                .pauseFor(1000) // Optional: Pause for a while before stopping
+                                .start();
+                            }}
+                          />
                         </div>
                       </div>
                     )}

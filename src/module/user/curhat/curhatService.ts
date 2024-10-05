@@ -10,6 +10,13 @@ import {
 import { ResultModelGetCurhat } from "@/src/model/modelGetCurhat";
 import { ResultDetailConversation } from "@/src/model/modelDetailConversation";
 
+interface interfaceListChat {
+  response: any;
+  roleAi: any;
+  isUser: any;
+  createdAt?: any;
+  updatedAt?: any;
+}
 const useCurhatService = () => {
   const [isData, setIsData] = useState<string>("");
   const [conversationId, setConversationId] = useState<number>();
@@ -25,6 +32,8 @@ const useCurhatService = () => {
     ResultDetailConversation[] | null
   >([]);
 
+  const [listChat, setListChat] = useState<interfaceListChat[] | null>([]);
+
   const fetchDataConversation = async () => {
     //
     const resp = await fetchGetCurhat();
@@ -32,6 +41,7 @@ const useCurhatService = () => {
     if (resp === null) {
       return null;
     }
+    console.log("Respon", resp.result);
     setListConversation(resp.result);
   };
 
@@ -43,7 +53,21 @@ const useCurhatService = () => {
       return null;
     }
 
-    setListDetailConversation(resp.result);
+    if (Array.isArray(resp.result)) {
+      const formattedData: interfaceListChat[] = resp.result.map(
+        (item: any) => ({
+          response: item.response,
+          roleAi: item.roleAi, // sesuaikan dengan field di JSON
+          isUser: item.isUser,
+          createdAt: item.createdAt,
+          updatedAt: item.updatedAt,
+        }),
+      );
+
+      setListChat(formattedData);
+    } else {
+      console.error("Result is not an array");
+    }
   };
 
   const postConversation = async () => {
@@ -54,13 +78,34 @@ const useCurhatService = () => {
       prompt,
     };
 
+    setListChat((prevChat) => [
+      ...(prevChat || []),
+      {
+        response: prompt, // Menggunakan prompt sebagai response
+        roleAi: "user", // Misalnya, ini adalah role dari pengguna
+        isUser: true, // Flag bahwa ini adalah pesan dari pengguna
+        createdAt: new Date().toISOString(), // Tanggal dibuat
+        updatedAt: new Date().toISOString(), // Tanggal diperbarui
+      },
+    ]);
+
     const resp = await fetchPostDetailCurhat(reqBody);
 
     if (resp === null) {
       return null;
     }
 
-    setListDetailConversation(resp.result);
+    // setListDetailConversation(resp.result);
+    setListChat((prevChat) => [
+      ...(prevChat || []),
+      {
+        response: resp.result.response, // Menggunakan response dari AI
+        roleAi: "assistant", // Role AI
+        isUser: false, // Flag bahwa ini adalah pesan dari AI
+        createdAt: new Date().toISOString(), // Tanggal dibuat
+        updatedAt: new Date().toISOString(), // Tanggal diperbarui
+      },
+    ]);
     setPrompt("");
     setIsSubmit(false);
   };
@@ -78,11 +123,13 @@ const useCurhatService = () => {
     setIsSesi(false);
   };
 
+  // console.log(listChat);
   useEffect(() => {
     fetchDataConversation();
   }, []);
 
   return {
+    listChat,
     isData,
     setIsData,
     conversationId,

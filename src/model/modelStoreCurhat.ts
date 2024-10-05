@@ -1,23 +1,37 @@
 // To parse this data:
 //
-//   import { Convert, ModelStoreCurhat } from "./file";
+//   import { Convert, ModelGetUser } from "./file";
 //
-//   const modelStoreCurhat = Convert.toModelStoreCurhat(json);
+//   const modelGetUser = Convert.toModelGetUser(json);
 
 export interface ModelStoreCurhat {
   errorCode: number;
   message: string;
-  result: ResultModelStoreCurhat;
+  result: Result[];
 }
 
-export interface ResultModelStoreCurhat {
+export interface Result {
   id: number;
   conversationId: number;
   response: string;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: null;
+  roleAi: string;
   isUser: boolean;
+  readeble: boolean;
+  conversation: Conversation;
+}
+
+export interface Conversation {
+  id: number;
+  userId: number;
+  uuid: string;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: null;
+  isEndConversation: boolean;
+  type: string;
 }
 
 // Converts JSON strings to/from your types
